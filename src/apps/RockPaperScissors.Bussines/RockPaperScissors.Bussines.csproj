@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RockPaperScissors.Bussines.Abstractions\RockPaperScissors.Bussines.Abstractions.csproj" />
+    <ProjectReference Include="..\RockPaperScissors.DataAccess.Abstractions\RockPaperScissors.DataAccess.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

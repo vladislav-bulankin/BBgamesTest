@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "RockPaperScissors.Service.Protos";
+
+package notification;
+
+service Notification {
+	 rpc Subscribe(NotificationRequst) returns (stream NotificationResponse);
+}
+
+message NotificationRequst {
+    int32 gameId = 1;
+    int32 userId = 2;
+    string Move = 3;
+}
+
+message NotificationResponse {
+    int32 gameId = 1;
+    string Player1Name = 2;
+    string Player2Name = 3;
+    string Player1Move = 4;
+    string Player2Move = 5;
+    string WinnerName = 6;
+}

@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option csharp_namespace = "RockPaperScissors.Service.Protos";
+
+
+package user;
+
+service User{
+	rpc GetBalance(Gamer) returns (UserBalance);//получить баланс
+	rpc JoinToMatch(JoinToMatchRequst) returns (JoinResponse);//присоедениться к игре
+	rpc CreateMoneyTransfer(MoneyTransferRequest) returns(MoneytransferResponse);//перевод 
+	rpc IdentifyUser(IdentityRequest) returns(IdentityResponse);
+}
+
+message IdentityRequest {
+	string userName = 1;
+}
+
+message IdentityResponse {
+	bool isSuccess = 1;
+	int32 userId = 2;
+	string error = 3;
+}
+
+message MoneytransferResponse {
+	bool isSuccess = 1;
+	string error = 2;
+}
+
+message MoneyTransferRequest {
+	double amount = 1;
+	int32 fromUserId = 2;
+	int32 toUserId = 3;
+}
+
+message Gamer {
+	int32 userId = 1;
+	string userName = 2;
+}
+
+message UserBalance {
+	double balance = 1;
+}
+
+message JoinToMatchRequst {
+	int32 gameId = 1;
+	string userName = 2;
+	string Move = 3;
+}
+
+message JoinResponse{
+	int32 gameId = 1;
+	string player1Name = 2;
+	string player1Move = 3;
+	string player2Name = 4;
+	string player2Move = 5;
+	string WinnerName = 6;
+	bool isSuccess = 7;
+}

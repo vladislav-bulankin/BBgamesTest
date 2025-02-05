@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "RockPaperScissors.Client.Protos";
+
+
+package match;
+
+service Match {
+	rpc GetMatchList(GetMatchListRequst) returns (stream MatchGame);//получение списка игр
+	rpc CreateMatch(CreateMatchRequest) returns (MatchGame);//создать матч 
+}
+
+message GetMatchListRequst {
+}
+
+message CreateMatchRequest {
+	string  userName = 1;
+	double matchRate = 2;
+	string PlayerChoice = 3; 
+}
+
+message MatchGame {
+	int32 gameId = 1;
+	string PlayerName = 2;
+	double gameRate = 3;
+}
