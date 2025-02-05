@@ -53,8 +53,8 @@ namespace RockPaperScissors.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Player1Id = table.Column<int>(type: "integer", nullable: false),
-                    Player2Id = table.Column<int>(type: "integer", nullable: false),
+                    Player1Id = table.Column<int>(type: "integer", nullable: true),
+                    Player2Id = table.Column<int>(type: "integer", nullable: true),
                     WinnerId = table.Column<int>(type: "integer", nullable: true),
                     Bet = table.Column<decimal>(type: "numeric", nullable: false),
                     MovePlayer1 = table.Column<string>(type: "text", nullable: true),
@@ -84,7 +84,7 @@ namespace RockPaperScissors.DataAccess.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_GameTransactionsDb_UserId",
                 table: "GameTransactionsDb",
-                column: "Player1Id");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MatchHistoryDb_Player1Id",

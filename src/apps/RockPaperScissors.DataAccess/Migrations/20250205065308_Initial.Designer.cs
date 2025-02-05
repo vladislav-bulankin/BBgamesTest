@@ -12,8 +12,8 @@ using RockPaperScissors.DataAccess;
 namespace RockPaperScissors.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250204221358_uniquId")]
-    partial class uniquId
+    [Migration("20250205065308_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
