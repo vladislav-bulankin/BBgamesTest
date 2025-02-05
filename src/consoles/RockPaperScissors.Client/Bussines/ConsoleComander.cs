@@ -42,6 +42,7 @@ public class ConsoleComander : IConsoleComander {
         Console.WriteLine("Пперевести денги пользователю send_money amount to userName" +
             "\r\nгде amount это сумма целые и вещественные части разделены точкой" +
             "\r\nuserName имя пользователя");
+        Console.WriteLine("Посмотреть баланс = balance");
         Console.WriteLine("Выйти из игры out");
     }
 
@@ -142,11 +143,18 @@ public class ConsoleComander : IConsoleComander {
                 return GetMatchList();
             case "help":
                 return Reload();
+            case "balance":
+                return GetBalance();
             case "out":
                 return Task.Run(() => Environment.Exit(0));
             default:
                 return Reload("Команда не определена");
         }
+    }
+
+    private async Task GetBalance () {
+        double balance = await userServiceClient.GetUserBalance();
+        Console.WriteLine($"Ваш баланс {balance}");
     }
 
     public async Task GetMatchList () {

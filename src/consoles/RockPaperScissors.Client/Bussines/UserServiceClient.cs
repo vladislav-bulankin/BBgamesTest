@@ -79,6 +79,15 @@ public class UserServiceClient : IUserServiceClient {
         };
     }
 
+    public async Task<double> GetUserBalance () {
+        var client = await CreateClientAsync ();
+        var balance = client.GetBalance(new() {
+            UserId = CurrentUser.GetInstance().GetId(),
+            UserName = CurrentUser.GetInstance().GetName()
+        });
+        return balance.Balance;
+    }
+
     private async Task<User.UserClient> CreateClientAsync () {
         var channel = GrpcChannel.ForAddress(serviceIp);
         return new User.UserClient(channel);

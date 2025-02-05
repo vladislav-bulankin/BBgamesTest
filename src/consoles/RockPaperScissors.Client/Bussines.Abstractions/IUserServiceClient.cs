@@ -7,4 +7,5 @@ public interface IUserServiceClient {
     Task<UserDto> GetUserAsync (string userName);
     Task<TransactionDto?> CreateTransaction (UserDto toUser, UserDto fromUser, double amount);
     Task<MatchDto> JoinMatch (int matchId, string move, CurrentUser user);
+    Task<double> GetUserBalance ();
 }
