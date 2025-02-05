@@ -15,10 +15,6 @@ public class AppDbContext : DbContext {
     protected override void OnModelCreating (ModelBuilder modelBuilder) {
 
         modelBuilder.Entity<GameTransactions>()
-        .Property(p => p.Id)
-        .ValueGeneratedOnAdd();
-
-        modelBuilder.Entity<GameTransactions>()
             .HasOne(p => p.User)
             .WithMany()
             .HasForeignKey(p => p.UserId);
